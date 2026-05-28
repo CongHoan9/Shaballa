@@ -1,0 +1,191 @@
+﻿<Page x:Class="Shaballa.Page_QuanLyOrder"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Shaballa" 
+      d:DataContext="{d:DesignInstance Type=local:ViewModel_Page_QuanLyOrder}"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <local:ResponsiveColumn Width="*" ResponsiveSize="1000" NewSize="0"/>
+                <ColumnDefinition Width="2*"/>
+                <local:ResponsiveColumn Width="1.5*" MaxWidth="460" MinWidth="330" ResponsiveSize="800" NewSize="0"/>
+            </Grid.ColumnDefinitions>
+            <Border Style="{StaticResource Layout}">
+                <Border Background="White" CornerRadius="7" Margin="5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Border Background="WhiteSmoke" Height="50" CornerRadius="7"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <RadioButton Style="{StaticResource TabItenSelect}" IsChecked="True" Content="Tạo đơn"/>
+                            <RadioButton Style="{StaticResource TabItenSelect}" Grid.Column="1" Content="Đồ ăn"/>
+                            <RadioButton Style="{StaticResource TabItenSelect}" Grid.Column="2" Content="Thông tin"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Border>
+            <Border Style="{StaticResource Layout}" Grid.Column="1" Padding="6">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <local:CornerRadiusGrid Background="#f5f5f5" CornerRadius="7" Grid.Row="1" Margin="3">
+                        <local:ZoomScrollViewer Grid.Row="1" Padding="10">
+                            <ScrollViewer.Resources>
+                                <Style TargetType="Button">
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Setter Property="Cursor" Value="Hand"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Grid Background="{TemplateBinding Background}">
+                                                    <Canvas x:Name="C1">
+                                                        <Canvas.RenderTransformOrigin>0.5,0.5</Canvas.RenderTransformOrigin>
+                                                        <Canvas.RenderTransform>
+                                                            <ScaleTransform/>
+                                                        </Canvas.RenderTransform>
+                                                        <ContentPresenter/>
+                                                    </Canvas>
+                                                </Grid>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Trigger.EnterActions>
+                                                            <BeginStoryboard>
+                                                                <Storyboard>
+                                                                    <DoubleAnimation Storyboard.TargetName="C1" Storyboard.TargetProperty="RenderTransform.ScaleX" To="1.1" Duration="0:0:.2"/>
+                                                                    <DoubleAnimation Storyboard.TargetName="C1" Storyboard.TargetProperty="RenderTransform.ScaleY" To="1.1" Duration="0:0:.2"/>
+                                                                </Storyboard>
+                                                            </BeginStoryboard>
+                                                        </Trigger.EnterActions>
+                                                        <Trigger.ExitActions>
+                                                            <BeginStoryboard>
+                                                                <Storyboard>
+                                                                    <DoubleAnimation Storyboard.TargetName="C1" Storyboard.TargetProperty="RenderTransform.ScaleX" To="1" Duration="0:0:.2"/>
+                                                                    <DoubleAnimation Storyboard.TargetName="C1" Storyboard.TargetProperty="RenderTransform.ScaleY" To="1" Duration="0:0:.2"/>
+                                                                </Storyboard>
+                                                            </BeginStoryboard>
+                                                        </Trigger.ExitActions>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ScrollViewer.Resources>
+                            <Viewbox Stretch="UniformToFill" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <TabControl SelectedIndex="{Binding Trang}" Width="{Binding SizeWidth}" Height="{Binding SizeHeight}" BorderThickness="0">
+                                    <TabItem>
+                                        <ItemsControl ItemsSource="{Binding NoiThats}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <local:AutoBoundCanvas/>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemContainerStyle>
+                                                <StaticResource ResourceKey="Cautruc"/>
+                                            </ItemsControl.ItemContainerStyle>
+                                        </ItemsControl>
+                                    </TabItem>
+                                </TabControl>
+                            </Viewbox>
+                        </local:ZoomScrollViewer>
+                    </local:CornerRadiusGrid>
+                    <Grid Margin="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Canvas Width="25" Height="25" Margin="3">
+                            <Canvas.RenderTransform>
+                                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                            </Canvas.RenderTransform>
+                            <Path Fill="#292D32" Data="M7.24 2H5.34C3.15 2 2 3.15 2 5.33V7.23C2 9.41 3.15 10.56 5.33 10.56H7.23C9.41 10.56 10.56 9.41 10.56 7.23V5.33C10.57 3.15 9.42 2 7.24 2Z"/>
+                            <Path Fill="#a9abad" Data="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z"/>
+                            <Path Fill="#292D32" Data="M18.6695 13.4302H16.7695C14.5895 13.4302 13.4395 14.5802 13.4395 16.7602V18.6602C13.4395 20.8402 14.5895 21.9902 16.7695 21.9902H18.6695C20.8495 21.9902 21.9995 20.8402 21.9995 18.6602V16.7602C21.9995 14.5802 20.8495 13.4302 18.6695 13.4302Z"/>
+                            <Path Fill="#a9abad" Data="M7.24 13.4302H5.34C3.15 13.4302 2 14.5802 2 16.7602V18.6602C2 20.8502 3.15 22.0002 5.33 22.0002H7.23C9.41 22.0002 10.56 20.8502 10.56 18.6702V16.7702C10.57 14.5802 9.42 13.4302 7.24 13.4302Z"/>
+                            <Path Data=""/>
+                        </Canvas>
+                        <TextBlock Text="Bố cục bàn ghế" Style="{StaticResource TextBlock}" Margin="3" Grid.Column="1" FontSize="14"/>
+                        <Button Command="{Binding CmdBackTab}" Style="{StaticResource TransparentButtonScale}" Width="24" Height="25" Grid.Column="3">
+                            <Path Fill="#303030" Data="M13.9783 5.31877L10.7683 8.52877L8.79828 10.4888C7.96828 11.3188 7.96828 12.6688 8.79828 13.4988L13.9783 18.6788C14.6583 19.3588 15.8183 18.8688 15.8183 17.9188V12.3088V6.07877C15.8183 5.11877 14.6583 4.63877 13.9783 5.31877Z"/>
+                        </Button>
+                        <Button Command="{Binding CmdNextTab}" Style="{StaticResource TransparentButtonScale}" Width="24" Height="25" Grid.Column="4">
+                            <Path Fill="#303030" Data="M15.1997 10.4919L13.2297 8.52188L10.0197 5.31188C9.33969 4.64188 8.17969 5.12188 8.17969 6.08188V12.3119V17.9219C8.17969 18.8819 9.33969 19.3619 10.0197 18.6819L15.1997 13.5019C16.0297 12.6819 16.0297 11.3219 15.1997 10.4919Z"/>
+                        </Button>
+                    </Grid>
+                </Grid>
+            </Border>
+            <Grid Margin="8" Grid.Column="2">
+                <Border Style="{StaticResource BorderShadown}" CornerRadius="10"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="45"/>
+                    </Grid.RowDefinitions>
+                    <Border Background="#638f48" CornerRadius="10,10,0,0"/>
+                    <TextBlock Text="Danh sách đơn hàng" Style="{StaticResource TextBlock}" FontWeight="Heavy" Foreground="White" FontSize="15"/>
+                    <Grid Grid.Row="1" Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <local:WatermarkTextBox Watermark="Tìm kiếm đơn hàng..." Margin="8" Style="{StaticResource SearchTextBox}"/>
+                        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
+                            <ItemsControl ItemsSource="{Binding DonHangs}">
+                                <ItemsControl.Style>
+                                    <Style TargetType="ItemsControl">
+                                        <Setter Property="ItemTemplate" Value="{StaticResource DonHangBan}"/>
+                                    </Style>
+                                </ItemsControl.Style>
+                                <ItemsControl.ItemContainerStyle>
+                                    <Style TargetType="ContentPresenter">
+                                        <Setter Property="local:DragDropBehavior.CanDrop" Value="True"/>
+                                    </Style>
+                                </ItemsControl.ItemContainerStyle>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </Grid>
+                    <Border Grid.Row="3" CornerRadius="0,0,10,10" Background="#f5f5f5">
+                        <TextBlock Text="Danh sách đơn hàng của tất cả điểm phục vụ!" Style="{StaticResource TieuDeGray}" HorizontalAlignment="Center"/>
+                    </Border>
+                </Grid>
+            </Grid>
+        </Grid>
+        <!--<local:DragDropCanvas Margin="8">
+            <local:MenuControl Style="{StaticResource BorderShadown}" CornerRadius="25">
+                <local:CornerRadiusGrid CornerRadius="25">
+                    <Canvas IsEnabled="False" IsHitTestVisible="False" Width="25" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12.5">
+                        <Path Fill="#fbb820" Data="M16,6H6a1,1,0,0,1-.22-2l8.8-2a1.9,1.9,0,0,1,1.62.38A2.13,2.13,0,0,1,17,4.12V5A1,1,0,0,1,16,6ZM14.9,4h0Z"/>
+                        <Path Data="M17,4H6A1,1,0,0,0,5,5V21a1,1,0,0,0,1,1H17a2,2,0,0,0,2-2V6A2,2,0,0,0,17,4Z"/>
+                        <Path Fill="#fbb820" Data="M15,14H9a1,1,0,0,1,0-2h6a1,1,0,0,1,0,2Zm0-4H9A1,1,0,0,1,9,8h6a1,1,0,0,1,0,2Z"/>
+                    </Canvas>
+                    <StackPanel Height="500" Width="600">
+                        <StackPanel.RenderTransform>
+                            <TranslateTransform Y="50"/>
+                        </StackPanel.RenderTransform>
+                        <ItemsControl Background="Red">
+                            
+                        </ItemsControl>
+                    </StackPanel>
+                </local:CornerRadiusGrid>
+            </local:MenuControl>
+        </local:DragDropCanvas>-->
+    </Grid>
+</Page>

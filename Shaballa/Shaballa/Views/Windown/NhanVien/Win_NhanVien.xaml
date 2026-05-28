@@ -1,0 +1,403 @@
+﻿<Window x:Class="Shaballa.Win_NhanVien"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Shaballa" 
+        d:DataContext="{d:DesignInstance Type=local:ViewModel_Win_NhanVien}"
+        mc:Ignorable="d"    
+        Title="{Binding Account.Name}" 
+        WindowStartupLocation="CenterScreen"
+        Height="750" 
+        Width="1200"
+        MinHeight="500"
+        MinWidth="900">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Background="#638f48">
+            <StackPanel Margin="5">
+                <StackPanel.Resources>
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlock}">
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="FontWeight" Value="Heavy"/>
+                        <Setter Property="Grid.Column" Value="1"/>
+                        <Setter Property="Padding" Value="5,0"/>
+                    </Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource HighLightButton}">
+                        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                        <Setter Property="Height" Value="50"/>
+                        <Setter Property="Margin" Value="5"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Button Command="{Binding CmdShowPage}" CommandParameter="1" Width="80" Margin="10" Style="{StaticResource Logo}"/>
+                <Button Command="{Binding CmdShowPage}" CommandParameter="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Canvas Width="35">
+                            <Canvas.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX=".05" ScaleY=".05"/>
+                                    <TranslateTransform Y="-4"/>
+                                </TransformGroup>
+                            </Canvas.RenderTransform>
+                            <Rectangle Canvas.Left="50" Canvas.Top="460" Fill="#F4F6F9" Height="36" Width="419"/>
+                            <Path Fill="#E5E8EC" Data="M458.668,479.996c0,5.906,4.766,10.672,10.656,10.672V469.34 C463.434,469.34,458.668,474.121,458.668,479.996z"/>
+                            <Path Fill="#EC5564" Data="M62.535,469.449h406.789c5.89,0,10.671-4.766,10.671-10.672V10.677c0-5.891-4.781-10.672-10.671-10.672 H74.676c-23.562,0-42.671,19.109-42.671,42.671v0.016v394.867v21.219v21.219c0,17.687,14.327,31.999,31.999,31.999h405.32l0,0 c5.89,0,10.671-4.781,10.671-10.656c0-5.906-4.781-10.671-10.671-10.671h-0.016H64.004c-5.875,0-10.672-4.781-10.672-10.672 C53.332,474.621,57.348,470.168,62.535,469.449z"/>
+                            <Path Fill="#E5E8EC" Data="M170.783,362.67V250.953l-6.562-2.734c-25.171-10.5-41.452-34.921-41.452-62.187 c0-37.14,30.218-67.358,67.358-67.358c23.249,0,23.624-16.531,36.062,3.156l24.827-12l14.172,2.344   c12.437-19.703,33.718,6.5,56.968,6.5c37.14,0,67.342,30.218,67.342,67.358c0,27.266-16.266,51.687-41.437,62.187l-6.562,2.734 V362.67H170.783z"/>
+                            <Path Fill="#CBD0D8" Data="M322.155,108.003c-7.359,0-14.469,1.031-21.219,2.938c-12.484-9.375-27.984-14.938-44.796-14.938 s-32.327,5.562-44.796,14.938c-6.75-1.906-13.859-2.938-21.218-2.938c-43.094,0-78.015,34.937-78.015,78.029    c0,32.453,19.812,60.265,47.999,72.03v115.279h192.043V258.062c28.202-11.766,48.015-39.578,48.015-72.03    C400.169,142.939,365.248,108.003,322.155,108.003z M343.952,238.375l-13.125,5.469v14.219v93.936h-0.016    c0-5.875-4.781-10.656-10.672-10.656s-10.672,4.781-10.672,10.656h-10.656c0-5.875-4.781-10.656-10.672-10.656    s-10.672,4.781-10.672,10.656h-10.655c0-5.875-4.781-10.656-10.672-10.656s-10.672,4.781-10.672,10.656h-10.655    c0-5.875-4.781-10.656-10.672-10.656s-10.672,4.781-10.672,10.656h-10.656c0-5.875-4.781-10.656-10.672-10.656    c-5.89,0-10.671,4.781-10.671,10.656h-0.016v-93.936v-14.219l-13.125-5.469c-21.188-8.843-34.89-29.39-34.89-52.343    c0-31.265,25.421-56.687,56.687-56.687c1.25,0,2.499,0.047,3.733,0.125c-7.515,11.344-12.015,24.859-12.358,39.421    c-0.109,0.578-0.172,1.172-0.172,1.781c0,5.891,4.781,10.671,10.671,10.671c5.891,0,10.672-4.781,10.672-10.671h0.141    c0-29.406,23.922-53.327,53.327-53.327c28.937,0,52.546,23.156,53.296,51.921c-0.062,0.469-0.109,0.922-0.109,1.406    c0,5.891,4.781,10.671,10.672,10.671s10.672-4.781,10.672-10.671h0.141c0-15.234-4.578-29.39-12.406-41.203 c1.25-0.078,2.484-0.125,3.75-0.125c31.249,0,56.686,25.422,56.686,56.687C378.841,208.985,365.139,229.532,343.952,238.375z"/>
+                            <Path Fill="#CBD0D8" Data="M224.001,224c0-5.891-4.781-10.656-10.672-10.656S202.673,218.11,202.673,224v0.016v53.328l0,0    c0,5.89,4.766,10.655,10.656,10.655s10.672-4.766,10.672-10.655l0,0v-53.328V224z"/>
+                            <Path Fill="#CBD0D8" Data="M266.672,224c0-5.891-4.781-10.656-10.672-10.656S245.328,218.11,245.328,224v0.016v53.328l0,0    c0,5.89,4.781,10.655,10.672,10.655s10.672-4.766,10.672-10.655l0,0v-53.328V224z"/>
+                            <Path Fill="#CBD0D8" Data="M309.327,224c0-5.891-4.766-10.656-10.656-10.656S287.999,218.11,287.999,224v0.016v53.328l0,0    c0,5.89,4.781,10.655,10.672,10.655s10.656-4.766,10.656-10.655l0,0v-53.328V224z"/>
+                            <Path Data=""/>
+                        </Canvas>
+                        <TextBlock Text="Thực đơn"/>
+                    </StackPanel>
+                </Button>
+                <Button Command="{Binding CmdShowPage}" CommandParameter="1">
+                    <StackPanel Orientation="Horizontal">
+                        <Canvas Width="35">
+                            <Canvas.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX=".09" ScaleY=".09"/>
+                                    <TranslateTransform Y="-7"/>
+                                </TransformGroup>
+                            </Canvas.RenderTransform>
+                            <Path Fill="#49B86E" Data="M279.029,144.352c-36.175,3.909-70.075-35.245-70.075-35.245 s24.752-45.493,60.927-49.403c25.668-2.774,50.19,16.133,62.27,27.35c4.842,4.496,5.636,11.849,1.867,17.275 C324.614,117.869,304.697,141.578,279.029,144.352z"/>
+                            <Path Fill="#49B86E" Data="M167.836,58.21c3.288,30.428,41.554,51.247,41.554,51.247 s32.934-28.514,29.645-58.942c-2.224-20.577-20.444-36.761-32.008-45.082c-5.479-3.943-13.043-3.126-17.554,1.897 C179.954,17.931,165.612,37.633,167.836,58.21z"/>
+                            <Path Fill="#91C6A5" Data="M147.794,70.195L28.588,162.793v139.225c0,17.358,14.072,31.43,31.43,31.43h175.554   c17.358,0,31.43-14.072,31.43-31.43V162.793L147.794,70.195z"/>
+                            <Path Fill="#2B7B57" Data="M271.532,182.723L147.795,89.011L24.057,182.723 c-6.604,5.002-16.013,3.703-21.014-2.902l0,0c-5.002-6.604-3.702-16.012,2.902-21.014l131.753-99.782 c5.972-4.523,14.223-4.523,20.194,0l131.753,99.782c6.604,5.002,7.903,14.41,2.902,21.014l0,0 C287.545,186.426,278.136,187.725,271.532,182.723z"/>
+                            <Path Fill="#2B7B57" Data="M131.218,234.114h33.153c15.606,0,28.257,12.651,28.257,28.257v71.076h-89.667   v-71.076C102.961,246.765,115.612,234.114,131.218,234.114z"/>
+                            <Path Fill="#49B86E" Data=""/>
+                            <Path Fill="#49B86E" Data=""/>
+                        </Canvas>
+                        <TextBlock Text="Trang chính"/>
+                    </StackPanel>
+                </Button>
+                <Button Command="{Binding CmdShowPage}" CommandParameter="2">
+                    <StackPanel Orientation="Horizontal">
+                        <Canvas Width="35">
+                            <Canvas.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX=".06" ScaleY=".06"/>
+                                    <TranslateTransform Y="-37"/>
+                                </TransformGroup>
+                            </Canvas.RenderTransform>
+                            <Path Fill="#D2D7D3" Data="M314.905,563.833c19.955,0,36.021,15.222,36.021,34.129v364.795c0,11.038-5.48,20.814-14.008,27.045 V623.559H0v-25.597c0-18.908,16.065-34.129,36.021-34.129L314.905,563.833L314.905,563.833z"/>
+                            <Path Fill="#B4B8B5" Data="M36.021,563.833c-2.095,0-4.144,0.178-6.139,0.5c-1.005,0.269-1.807,0.472-2.051,0.496 c18.179,1.767,36.705,16.926,36.705,34.633l-0.654-35.629H36.021z"/>
+                            <Path Fill="#ECF0F1" Data="M379.443,563.833H100.558c-19.955,0-36.021,15.222-36.021,34.129v364.795 c0,18.908,16.065,34.129,36.021,34.129h278.885c19.955,0,36.021-15.222,36.021-34.129V597.963 C415.463,579.055,399.398,563.834,379.443,563.833L379.443,563.833z"/>
+                            <Path Fill="#ECF0F1" Data="M36.021,563.833c-1.267,0-2.521,0.064-3.754,0.184c18.179,1.767,32.27,16.239,32.27,33.945v353.42 h272.381v38.42c8.528-6.231,14.008-16.007,14.008-27.045v-11.375h19.512V563.833h-305.9H36.021L36.021,563.833z"/>
+                            <Path Fill="#DCDFE0" Data="M126.246,933.813v19.031v8.021c0,18.688-14.09,33.963-32.27,35.828 c1.233,0.127,2.486,0.193,3.754,0.193h28.516h36.02h28.541H441.15c19.955,0,36.021-16.066,36.021-36.021V933.85L126.246,933.813 L126.246,933.813z"/>
+                            <Path Fill="#D2D7D3" Data="M129.074,933.813v19.031v8.021c0,18.688-14.09,33.963-32.27,35.828 c1.233,0.127,2.486,0.193,3.754,0.193h28.516h36.02h28.541h250.344c19.955,0,36.021-16.066,36.021-36.021V933.85L129.074,933.813 L129.074,933.813z"/>
+                            <Path Fill="#D2D7D3" Data="M270.832,645.213h-160v11.006h160V645.213z"/>
+                            <Path Fill="#D2D7D3" Data="M270.832,694.34h-160v11.006h160V694.34z"/>
+                            <Path Fill="#D2D7D3" Data="M270.832,743.467h-160v11.006h160V743.467z"/>
+                            <Path Fill="#D2D7D3" Data="M369.168,792.594H110.832V803.6h258.336V792.594z"/>
+                            <Path Fill="#D2D7D3" Data="M369.168,841.721H110.832v11.006h258.336V841.721z"/>
+                            <Path Fill="#D2D7D3" Data="M369.168,889.975h-50.029v11.006h50.029L369.168,889.975z"/>
+                            <Path Fill="#D2D5D6" Data="M326.88,633.339v18.729c-13.313,5.474-21.199,19.81-18.768,34.295    c2.566,15.285,16.101,26.611,31.492,25.985c3.814,0.476,7.005,3.423,7.75,7.862c0.859,5.115-2.125,9.731-6.572,10.992    s-8.922-0.95-10.712-5.754l-20.311,7.567c3.08,8.269,9.448,14.567,17.12,17.785v18.946h21.675v-18.29    c14.16-5.015,22.692-19.847,20.175-34.835c-2.566-15.282-16.097-26.607-31.485-25.985c-3.818-0.473-7.012-3.421-7.758-7.863    c-0.859-5.115,2.125-9.731,6.572-10.992c4.447-1.262,8.922,0.952,10.712,5.755l20.311-7.567    c-3.267-8.769-10.231-15.323-18.528-18.335v-18.295H326.88L326.88,633.339z"/>
+                            <Path Fill="#FFB61C" Data="M323.163,629.939v18.729c-13.313,5.474-21.199,19.81-18.768,34.295    c2.566,15.285,16.101,26.611,31.492,25.985c3.814,0.476,7.005,3.423,7.75,7.862c0.859,5.115-2.125,9.731-6.572,10.992    c-4.447,1.261-8.922-0.95-10.712-5.754l-20.311,7.567c3.08,8.269,9.448,14.567,17.12,17.785v18.946h21.675v-18.29    c14.16-5.015,22.692-19.847,20.175-34.835c-2.566-15.282-16.097-26.607-31.485-25.985c-3.818-0.473-7.012-3.421-7.758-7.863    c-0.859-5.115,2.125-9.731,6.572-10.992c4.447-1.262,8.922,0.952,10.712,5.755l20.311-7.567    c-3.267-8.769-10.231-15.323-18.528-18.336v-18.295L323.163,629.939L323.163,629.939z"/>
+                            <Path Data=""/>
+                        </Canvas>
+                        <TextBlock Text="Hóa đơn bán"/>
+                    </StackPanel>
+                </Button>
+                <Button Command="{Binding CmdShowPage}" CommandParameter="3">
+                    <StackPanel Orientation="Horizontal">
+                        <Canvas Width="35">
+                            <Canvas.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="0.05" ScaleY="0.05"/>
+                                    <TranslateTransform Y="-4"/>
+                                </TransformGroup>
+                            </Canvas.RenderTransform>
+                            <Path Fill="#967342" Data="M32.071,74.574h436.727c6.147,0,11.13,4.983,11.13,11.13v398.47c0,6.147-4.983,11.13-11.13,11.13  H43.202c-6.147,0-11.13-4.983-11.13-11.13V74.574L32.071,74.574z"/>
+                            <Path Fill="#825934" Data="M32.071,139.479V74.574h436.727c6.147,0,11.13,4.983,11.13,11.13v53.774H32.071z"/>
+                            <Path Fill="#CAA661" Data="M500.87,94.609H11.13C4.983,94.609,0,89.626,0,83.478V27.826c0-6.147,4.983-11.13,11.13-11.13H500.87  c6.147,0,11.13,4.983,11.13,11.13v55.652C512,89.626,507.017,94.609,500.87,94.609z"/>
+                            <Path Fill="#899D4D" Data="M248.762,398.642c-38.354-15.55-68.985-48.59-79.671-91.754  c-10.685-43.165,1.015-86.576,27.713-118.065c38.359,15.55,68.982,48.587,79.676,91.753  C287.165,323.741,275.467,367.154,248.762,398.642L248.762,398.642z"/>
+                            <Path Fill="#A9BE65" Data="M248.75,398.642c-10.011-29.836-6.027-63.875,13.733-91.415  c19.765-27.538,50.778-42.276,82.327-42.447c10.004,29.835,6.024,63.873-13.736,91.413  C311.315,383.732,280.296,398.468,248.75,398.642L248.75,398.642z"/>
+                            <Path Data=""/>
+                        </Canvas>
+                        <TextBlock Text="Nguyên liệu"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1" Margin="8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Frame Content="{Binding PageOnShow}" Grid.Row="1"/>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="2" Margin="8,0">
+                <StackPanel.Resources>
+                    <Style TargetType="Grid" >
+                        <Setter Property="Margin" Value="5,0"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Canvas Width="19" Height="19">
+                    <Canvas.RenderTransform>
+                        <ScaleTransform ScaleX=".06" ScaleY=".06"/>
+                    </Canvas.RenderTransform>
+                    <Path Fill="#DEDDE0" Data="M235,270h-2.208C207.371,300.107,185,320,185,320s-22.371-19.893-47.792-50H135   c-27.614,0-50,22.386-50,50s22.386,50,50,50h100c27.614,0,50-22.386,50-50S262.614,270,235,270z"/>
+                    <Path Fill="#FF5023" Data="M185,320V160c-22.091,0-40-17.91-40-40c0-22.092,17.909-40,40-40V0   C118.727,0,65,53.727,65,120c0,53.037,38.748,110.371,72.208,150C162.629,300.107,185,320,185,320z"/>
+                    <Path Fill="#BF3C1A" Data="M225,120c0,22.09-17.909,40-40,40v160c0,0,22.371-19.893,47.792-50   C266.252,230.371,305,173.037,305,120C305,53.727,251.273,0,185,0v80C207.091,80,225,97.908,225,120z"/>
+                    <Path/>
+                </Canvas>
+                <TextBlock Style="{StaticResource TextBlock}" Text="Phố Nối - Hưng Yên" Margin="10,0" FontSize="13" Grid.Column="1"/>
+                <Grid Width="19" Height="19">
+                    <Ellipse Fill="#EDC92C"/>
+                    <Canvas>
+                        <Canvas.RenderTransform>
+                            <ScaleTransform ScaleX=".039" ScaleY=".039"/>
+                        </Canvas.RenderTransform>
+                        <Path Fill="White" Data="M372.596,297.595c-18.324-17.625-36.876-28.712-59.082-12.285  c-22.336,16.529-24.7,34.875-24.7,34.875s2.098,35.167-82.671-41.068c-76.28-84.806-41.098-82.708-41.098-82.708  s18.346-2.363,34.875-24.7c16.428-22.202,4.828-40.275-12.292-59.085c-54.777-60.185-87.981,8.208-87.981,8.208  c-38.783,65.274,25.863,142.852,75.734,189.065c46.217,49.871,123.765,114.457,189.009,75.681  C364.384,385.576,433.641,356.333,372.596,297.595z"/>
+                        <Path Data=""/>
+                    </Canvas>
+                </Grid>
+                <TextBlock Style="{StaticResource TextBlock}" Text="0123456789" Margin="5" FontSize="13" Grid.Column="1"/>
+            </StackPanel>
+            <Border Style="{StaticResource Layout}">
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Style="{StaticResource HighLightButton}" Command="{Binding CmdColse}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Content="Đăng xuất" Grid.Column="4" Margin="10"/>
+                    <Grid Grid.Column="3" Margin="10">
+                        <Border Style="{StaticResource BorderShadown}" CornerRadius="21"/>
+                        <StackPanel Margin="9" Orientation="Horizontal">
+                            <Path Data="M32,0C14.328,0,0,14.328,0,32s14.328,32,32,32s32-14.328,32-32S49.672,0,32,0z M42.844,42.844  c-1.566,1.566-4.168,1.488-5.734-0.078l-7.934-7.934c-0.371-0.367-0.664-0.812-0.867-1.305C28.105,33.039,28,32.523,28,32V16  c0-2.211,1.789-4,4-4s4,1.789,4,4v14.344l6.859,6.859C44.426,38.77,44.406,41.281,42.844,42.844z">
+                                <Path.LayoutTransform>
+                                    <ScaleTransform ScaleX=".4" ScaleY=".4"/>
+                                </Path.LayoutTransform>
+                            </Path>
+                            <TextBlock Text="{Binding Time, StringFormat={}{0:d/M/yyyy - h:mm}}" Style="{StaticResource TextBlock}" Margin="9, 0"/>
+                        </StackPanel>
+                    </Grid>
+                    <Button Content="Thông báo" Visibility="Collapsed">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource Button}">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="Grid.Column" Value="2"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid Background="{TemplateBinding Background}">
+                                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                                    <Grid Width="24" Height="24" Margin="5">
+                                                        <Path Data="M12 2C9.9695 2 8.34903 2.72578 7.24822 3.98079C6.16397 5.21692 5.66667 6.87057 5.66667 8.6V10.3333C5.66667 10.5774 5.55716 10.8709 5.27166 11.2498C4.99798 11.6129 4.6427 11.9534 4.25022 12.3296L4.18372 12.3934C3.49997 13.0494 3 13.9996 3 15.1333C3 16.67 4.19824 18 5.77778 18H18.2222C19.8018 18 21 16.67 21 15.1333C21 13.9996 20.5 13.0494 19.8163 12.3934L19.7498 12.3296L19.7497 12.3296C19.3573 11.9534 19.002 11.6129 18.7283 11.2498C18.4428 10.8709 18.3333 10.5774 18.3333 10.3333V8.6C18.3333 6.87057 17.836 5.21692 16.7518 3.98079C15.651 2.72578 14.0305 2 12 2Z"/>
+                                                        <Path Data="M9.44303 19.1694C9.90172 18.8618 10.5229 18.9843 10.8305 19.443C10.9299 19.5912 11.0843 19.731 11.2919 19.8345C11.4998 19.938 11.7444 19.9964 12 19.9964C12.2556 19.9964 12.5002 19.938 12.7081 19.8345C12.9157 19.731 13.0701 19.5912 13.1695 19.443C13.4771 18.9843 14.0983 18.8618 14.557 19.1694C15.0157 19.4771 15.1381 20.0983 14.8305 20.557C14.5234 21.0149 14.0944 21.3783 13.6 21.6246C13.1058 21.8708 12.5546 21.9964 12 21.9964C11.4454 21.9964 10.8942 21.8708 10.4 21.6246C9.90564 21.3783 9.47658 21.0149 9.16946 20.557C8.86186 20.0983 8.98434 19.4771 9.44303 19.1694Z"/>
+                                                    </Grid>
+                                                    <ContentPresenter Margin="5"/>
+                                                </StackPanel>
+                                                <local:AutoCenterCanvas x:Name="C1" AutoHorizontal="True" Visibility="Collapsed">
+                                                    <Canvas.RenderTransform>
+                                                        <TranslateTransform Y="65"/>
+                                                    </Canvas.RenderTransform>
+                                                    <Grid>
+                                                        <Border Style="{StaticResource BorderShadown}"/>
+                                                        <ItemsControl>
+                                                        </ItemsControl>
+                                                    </Grid>
+                                                </local:AutoCenterCanvas>
+                                            </Grid>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="C1" Property="Visibility" Value="Visible"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Command="{Binding CmdShowManage}">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource Button}">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="Margin" Value="10,0"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid Background="{TemplateBinding Background}">
+                                                <Grid.Resources>
+                                                    <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+                                                        <Setter Property="Margin" Value="10, 0"/>
+                                                        <Setter Property="FontSize" Value="14"/>
+                                                    </Style>
+                                                </Grid.Resources>
+                                                <StackPanel Cursor="Hand" Orientation="Horizontal" VerticalAlignment="Center">
+                                                    <Grid Height="40" Width="40">
+                                                        <Border Style="{StaticResource BorderShadown}" CornerRadius="100"/>
+                                                        <Canvas Margin="8">
+                                                            <Path Data="M9 13C7.33726 13 5.73823 13.7585 4.80115 14.9004C4.32556 15.48 3.99121 16.1971 3.9621 16.9919C3.93237 17.8036 4.22536 18.5958 4.82958 19.2871C6.30215 20.9716 8.65327 22 12 22C15.3467 22 17.6979 20.9716 19.1704 19.2871C19.7746 18.5958 20.0676 17.8036 20.0379 16.9919C20.0088 16.1971 19.6744 15.48 19.1989 14.9004C18.2618 13.7585 16.6627 13 15 13H9Z"/>
+                                                            <Path Data="M12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2Z"/>
+                                                        </Canvas>
+                                                        <Image Source="{Binding Image}" Margin="2">
+                                                            <Image.Clip>
+                                                                <RectangleGeometry Rect="1,1,39,39" RadiusX="20" RadiusY="20"/>
+                                                            </Image.Clip>
+                                                        </Image>
+                                                    </Grid>
+                                                    <TextBlock Text="{Binding Account.Name}" MaxWidth="200" TextWrapping="Wrap" TextTrimming="WordEllipsis" VerticalAlignment="Center" Margin="10" Grid.Column="1"/>
+                                                </StackPanel>
+                                                <Popup x:Name="P1" PopupAnimation="Slide">
+                                                    <Border Style="{StaticResource CornerRadiusBorder}" CornerRadius="10">
+                                                        <local:CornerRadiusGrid CornerRadius="10" Background="White">
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="100"/>
+                                                                <RowDefinition Height="Auto" MaxHeight="200"/>
+                                                                <RowDefinition Height="40"/>
+                                                            </Grid.RowDefinitions>
+                                                            <Button Content="Quản lý tài khoản" Command="{TemplateBinding Command}" Grid.Row="2">
+                                                                <Button.Style>
+                                                                    <Style TargetType="Button">
+                                                                        <Setter Property="Background" Value="WhiteSmoke"/>
+                                                                        <Setter Property="Foreground" Value="#638f48"/>
+                                                                        <Setter Property="FontWeight" Value="Heavy"/>
+                                                                        <Setter Property="Cursor" Value="Hand"/>
+                                                                        <Setter Property="Template">
+                                                                            <Setter.Value>
+                                                                                <ControlTemplate TargetType="Button">
+                                                                                    <Border Background="{TemplateBinding Background}">
+                                                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                                                    </Border>
+                                                                                </ControlTemplate>
+                                                                            </Setter.Value>
+                                                                        </Setter>
+                                                                        <Style.Triggers>
+                                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                                <Setter Property="Foreground" Value="#81b64c"/>
+                                                                            </Trigger>
+                                                                            <Trigger Property="IsPressed" Value="True">
+                                                                                <Setter Property="Foreground" Value="#81b64c"/>
+                                                                            </Trigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                </Button.Style>
+                                                            </Button>
+                                                            <ScrollViewer VerticalScrollBarVisibility="Visible" Grid.Row="1">
+                                                                <StackPanel>
+                                                                    <Button Style="{StaticResource TransparentButtonMouseOver}">
+                                                                        <StackPanel Orientation="Horizontal">
+                                                                            <Canvas Width="25" Height="25">
+                                                                                <Canvas.RenderTransform>
+                                                                                    <ScaleTransform ScaleX=".04" ScaleY=".04"/>
+                                                                                </Canvas.RenderTransform>
+                                                                                <Path Fill="#D6D5D8" Data="M505.514,130.521L443.413,68.42l0,0L381.312,6.319c-7.738-7.738-20.363-8.056-30.408-1.542  c-0.607,0.393-1.202,0.814-1.787,1.256c-0.776,0.587-1.529,1.219-2.264,1.893c-0.323,0.297-0.655,0.573-0.967,0.886l-35.394,35.394  l-70.79,70.789L6.825,347.873c-1.638,1.638-3.007,3.495-4.078,5.501c-0.714,1.338-1.296,2.742-1.737,4.193  c-0.661,2.177-1.008,4.457-1.009,6.774l0.003,55.276v68.924c0,2.413,0.366,4.738,1.048,6.926c0.453,1.458,1.048,2.855,1.764,4.175  c0.359,0.66,0.748,1.301,1.166,1.92c0.837,1.239,1.79,2.392,2.843,3.447l0,0c4.215,4.212,10.037,6.82,16.466,6.82h68.922  l55.277,0.003c6.177,0,12.103-2.456,16.469-6.82L396.836,272.13L503.02,165.946C513.494,155.477,514.608,139.615,505.514,130.521z"/>
+                                                                                <Path Fill="#A9A8AE" Data="M505.514,130.521L443.413,68.42l0,0L381.312,6.319c-9.095-9.095-24.957-7.977-35.425,2.492  L239.702,114.995l32.934,32.934l45.632,45.636l45.636,45.633l32.934,32.934l106.184-106.184  C513.494,155.477,514.608,139.615,505.514,130.521z"/>
+                                                                                <Polygon Fill="#5286FA" Points="363.904,239.2 318.268,193.565 272.636,147.932 239.702,114.995 6.825,347.873   85.388,426.443 163.958,505.011 396.836,272.13 "/>
+                                                                                <Path Fill="#2E36D2" Data="M472.245,270.582l-124.201,124.2c-9.095,9.095-9.095,23.839,0,32.934  c4.547,4.547,10.507,6.82,16.466,6.82c5.96,0,11.92-2.274,16.466-6.82l124.201-124.2c9.095-9.095,9.095-23.839,0-32.934  C496.085,261.486,481.339,261.489,472.245,270.582z"/>
+                                                                                <Polygon Fill="#424EDE" Points="318.268,193.565 272.636,147.932 239.701,114.995 6.825,347.873 85.388,426.443 "/>
+                                                                                <Path Fill="#C3C3C7" Data="M6.825,347.873C2.456,352.242,0.003,358.161,0,364.341l0.003,55.276v68.924  c0,6.434,2.61,12.252,6.822,16.468l78.564-78.565L6.825,347.873z"/>
+                                                                                <Path Fill="#87868D" Data="M318.268,193.565L443.413,68.42L381.312,6.319c-9.095-9.095-24.957-7.977-35.425,2.492  L239.702,114.995l32.934,32.934L318.268,193.565z"/>
+                                                                                <Path Data=""/>
+                                                                            </Canvas>
+                                                                            <TextBlock Text="Quản lý chấm công" Grid.Column="1"/>
+                                                                        </StackPanel>
+                                                                    </Button>
+                                                                    <Button Style="{StaticResource TransparentButtonMouseOver}">
+                                                                        <StackPanel Orientation="Horizontal">
+                                                                            <Canvas Width="25" Height="25">
+                                                                                <Canvas.RenderTransform>
+                                                                                    <TransformGroup>
+                                                                                        <ScaleTransform ScaleX=".027" ScaleY=".027"/>
+                                                                                        <TranslateTransform X="-3" Y="-2"/>
+                                                                                    </TransformGroup>
+                                                                                </Canvas.RenderTransform>
+                                                                                <Path Fill="#CFD8DC" Data="M106.666667 810.666667V298.666667h810.666666v512c0 46.933333-38.4 85.333333-85.333333 85.333333H192c-46.933333 0-85.333333-38.4-85.333333-85.333333z"/>
+                                                                                <Path Fill="#F44336" Data="M917.333333 213.333333v128H106.666667v-128c0-46.933333 38.4-85.333333 85.333333-85.333333h640c46.933333 0 85.333333 38.4 85.333333 85.333333z"/>
+                                                                                <Path Fill="#B71C1C" Data="M704 213.333333m-64 0a64 64 0 1 0 128 0 64 64 0 1 0-128 0Z"/>
+                                                                                <Path Fill="#B71C1C" Data="M320 213.333333m-64 0a64 64 0 1 0 128 0 64 64 0 1 0-128 0Z"/>
+                                                                                <Path Fill="#B0BEC5" Data="M704 64c-23.466667 0-42.666667 19.2-42.666667 42.666667v106.666666c0 23.466667 19.2 42.666667 42.666667 42.666667s42.666667-19.2 42.666667-42.666667V106.666667c0-23.466667-19.2-42.666667-42.666667-42.666667zM320 64c-23.466667 0-42.666667 19.2-42.666667 42.666667v106.666666c0 23.466667 19.2 42.666667 42.666667 42.666667s42.666667-19.2 42.666667-42.666667V106.666667c0-23.466667-19.2-42.666667-42.666667-42.666667z"/>
+                                                                                <Path Fill="#90A4AE" Data="M277.333333 448h128v128h-128zM448 448h128v128h-128zM618.666667 448h128v128h-128zM277.333333 618.666667h128v128h-128zM448 618.666667h128v128h-128z"/>
+                                                                                <Path Fill="#F44336" Data="M618.666667 618.666667h128v128h-128z"/>
+                                                                                <Path Data=""/>
+                                                                            </Canvas>
+                                                                            <TextBlock Text="Quản lý lịch làm" Grid.Column="1"/>
+                                                                        </StackPanel>
+                                                                    </Button>
+                                                                    <Button Style="{StaticResource TransparentButtonMouseOver}">
+                                                                        <StackPanel Orientation="Horizontal">
+                                                                            <Canvas Width="25" Height="25">
+                                                                                <Canvas.RenderTransform>
+                                                                                    <TransformGroup>
+                                                                                        <ScaleTransform ScaleX=".025" ScaleY=".025"/>
+                                                                                        <TranslateTransform X="-2"/>
+                                                                                    </TransformGroup>
+                                                                                </Canvas.RenderTransform>
+                                                                                <Path Fill="#78909C" Data="M853.333333 874.666667H170.666667c-46.933333 0-85.333333-38.4-85.333334-85.333334V343.466667c0-27.733333 12.8-53.333333 36.266667-70.4L512 0l390.4 273.066667c23.466667 14.933333 36.266667 42.666667 36.266667 70.4V789.333333c0 46.933333-38.4 85.333333-85.333334 85.333334z"/>
+                                                                                <Path Fill="#AED581" Data="M298.666667 21.333333h426.666666v661.333334H298.666667z"/>
+                                                                                <Path Fill="#558B2F" Data="M277.333333 0v704h469.333334V0H277.333333z m426.666667 661.333333H320V42.666667h384v618.666666z"/>
+                                                                                <Path Fill="#558B2F" Data="M725.333333 64c0 36.266667-6.4 64-42.666666 64s-64-27.733333-64-64 27.733333-42.666667 64-42.666667 42.666667 6.4 42.666666 42.666667zM341.333333 21.333333c36.266667 0 64 6.4 64 42.666667s-27.733333 64-64 64-42.666667-27.733333-42.666666-64 6.4-42.666667 42.666666-42.666667z"/>
+                                                                                <Path Fill="#558B2F" Data="M512 170.666667m-42.666667 0a42.666667 42.666667 0 1 0 85.333334 0 42.666667 42.666667 0 1 0-85.333334 0Z"/>
+                                                                                <Path Fill="#558B2F" Data="M512 426.666667m-128 0a128 128 0 1 0 256 0 128 128 0 1 0-256 0Z"/>
+                                                                                <Path Fill="#CFD8DC" Data="M853.333333 874.666667H170.666667c-46.933333 0-85.333333-38.4-85.333334-85.333334V362.666667l426.666667 277.333333 426.666667-277.333333v426.666666c0 46.933333-38.4 85.333333-85.333334 85.333334z"/>
+                                                                                <Path Data=""/>
+                                                                            </Canvas>
+                                                                            <TextBlock Text="Lương và thưởng" Grid.Column="1"/>
+                                                                        </StackPanel>
+                                                                    </Button>
+                                                                </StackPanel>
+                                                            </ScrollViewer>
+                                                            <Border Background="#638f48">
+                                                                <Grid Height="90" VerticalAlignment="Top" Margin="15, 10">
+                                                                    <Grid.Resources>
+                                                                        <Style x:Key="key" TargetType="TextBlock">
+                                                                            <Setter Property="Foreground" Value="White"/>
+                                                                            <Setter Property="FontWeight" Value="Bold"/>
+                                                                            <Setter Property="Margin" Value="0,0,10,0"/>
+                                                                            <Setter Property="Padding" Value="0"/>
+                                                                        </Style>
+                                                                        <Style x:Key="values" TargetType="TextBlock">
+                                                                            <Setter Property="Foreground" Value="White"/>
+                                                                            <Setter Property="Grid.Column" Value="2"/>
+                                                                            <Setter Property="FontSize" Value="13.5"/>
+                                                                            <Setter Property="Padding" Value="0"/>
+                                                                        </Style>
+                                                                    </Grid.Resources>
+                                                                    <Grid.ColumnDefinitions>
+                                                                        <ColumnDefinition Width="Auto"/>
+                                                                        <ColumnDefinition Width="10"/>
+                                                                        <ColumnDefinition Width="Auto"/>
+                                                                    </Grid.ColumnDefinitions>
+                                                                    <Grid.RowDefinitions>
+                                                                        <RowDefinition/>
+                                                                        <RowDefinition/>
+                                                                        <RowDefinition/>
+                                                                    </Grid.RowDefinitions>
+                                                                    <TextBlock Text="Mã tài khoản:" Style="{DynamicResource key}"/>
+                                                                    <TextBlock Text="{Binding Account.ID}" Style="{DynamicResource values}"/>
+                                                                    <TextBlock Text="Số điện thoại:" Style="{DynamicResource key}" Grid.Row="1"/>
+                                                                    <TextBlock Text="{Binding Account.Phone}" Style="{DynamicResource values}" Grid.Row="1"/>
+                                                                    <TextBlock Text="Địa chỉ nhà:" Style="{DynamicResource key}" Grid.Row="2"/>
+                                                                    <TextBlock Text="{Binding Account.Address}" Style="{DynamicResource values}" Grid.Row="2"/>
+                                                                </Grid>
+                                                            </Border>
+                                                        </local:CornerRadiusGrid>
+                                                    </Border>
+                                                </Popup>
+                                            </Grid>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="P1" Property="IsOpen" Value="True"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

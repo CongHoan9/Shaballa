@@ -1,0 +1,155 @@
+﻿<Grid Grid.Row="1" Margin="8">
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="auto"/>
+        <ColumnDefinition/>
+        <ColumnDefinition Width="250"/>
+    </Grid.ColumnDefinitions>
+    <Grid>
+        <Border Style="{StaticResource BorderShadown}" CornerRadius="20"/>
+        <local:CornerRadiusGrid CornerRadius="20">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="RadioButton">
+                        <Setter Property="Foreground" Value="#303030"/>
+                        <Setter Property="FontWeight" Value="Medium"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="RadioButton">
+                                    <Border Background="{TemplateBinding Background}" Padding="10">
+                                        <ContentPresenter VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="#638f48"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Resources>
+                <RadioButton Content="Tất cả" IsChecked="True"/>
+                <RadioButton Content="Đang chờ"/>
+                <RadioButton Content="Hoàn thành"/>
+                <RadioButton Content="Đã hủy"/>
+            </StackPanel>
+        </local:CornerRadiusGrid>
+    </Grid>
+    <local:WatermarkTextBox Text="Tìm kiếm đơn hàng..." Grid.Column="2"/>
+</Grid>
+
+thong ke 
+
+<!--<UniformGrid Rows="1" Visibility="Collapsed">
+        <UniformGrid.Resources>
+            <Style x:Key="TieuDe" TargetType="Label">
+                <Setter Property="Foreground" Value="#606060"/>
+                <Setter Property="FontWeight" Value="Medium"/>
+                <Setter Property="Padding" Value="0"/>
+            </Style>
+            <Style x:Key="NoiDung" TargetType="Label">
+                <Setter Property="Foreground" Value="#303030"/>
+                <Setter Property="FontWeight" Value="Heavy"/>
+                <Setter Property="FontSize" Value="17"/>
+                <Setter Property="Padding" Value="0"/>
+            </Style>
+        </UniformGrid.Resources>
+        <Border Margin="8" Background="#80dbeafe" CornerRadius="30">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid Width="40" Height="40" Margin="5">
+                    <Ellipse Fill="#dbeafe"/>
+                    <Path Fill="#2563eb" Data="M454.65,169.4A31.82,31.82,0,0,0,432,160H368V144a112,112,0,0,0-224,0v16H80a32,32,0,0,0-32,32V408c0,39,33,72,72,72H392a72.22,72.22,0,0,0,50.48-20.55A69.48,69.48,0,0,0,464,409.25V192A31.75,31.75,0,0,0,454.65,169.4ZM176,144a80,80,0,0,1,160,0v16H176Zm192,96a112,112,0,0,1-224,0V224a16,16,0,0,1,32,0v16a80,80,0,0,0,160,0V224a16,16,0,0,1,32,0Z">
+                        <Path.LayoutTransform>
+                            <ScaleTransform ScaleX=".04" ScaleY=".04"/>
+                        </Path.LayoutTransform>
+                        <Path.RenderTransform>
+                            <TranslateTransform X="10" Y="10"/>
+                        </Path.RenderTransform>
+                    </Path>
+                </Grid>
+                <StackPanel Grid.Column="1" Margin="5">
+                    <Label Style="{StaticResource TieuDe}" Content="Tổng đơn"/>
+                    <Label Style="{StaticResource NoiDung}" Content="{Binding DonHangs, Converter={local:Converter_DanhSachSangCount}}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <Border Margin="8" Background="#80dcfce7" CornerRadius="30">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid Width="40" Height="40" Margin="5">
+                    <Ellipse Fill="#dcfce7"/>
+                    <Path Fill="#16a34a" Data="M39.04,7.604l-2.398-1.93c-1.182-0.95-1.869-0.939-2.881,0.311L16.332,27.494l-8.111-6.739  c-1.119-0.94-1.819-0.89-2.739,0.26l-1.851,2.41c-0.939,1.182-0.819,1.853,0.291,2.78l11.56,9.562c1.19,1,1.86,0.897,2.78-0.222  l21.079-25.061C40.331,9.294,40.271,8.583,39.04,7.604z">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX=".45" ScaleY=".45"/>
+                                <TranslateTransform X="10.5" Y="10.5"/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                </Grid>
+                <StackPanel Grid.Column="1" Margin="5">
+                    <Label Style="{StaticResource TieuDe}" Content="Hoàn thành"/>
+                    <Label Style="{StaticResource NoiDung}" Content="{Binding DonHangs, Converter={local:Converter_DanhSachSangCount}}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <Border Margin="8" Background="#80fee2e2" CornerRadius="30">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid Width="40" Height="40" Margin="5">
+                    <Ellipse Fill="#fee2e2"/>
+                    <Path Fill="#991b1b" Data="M21.002,26.588l10.357,10.604c1.039,1.072,1.715,1.083,2.773,0l2.078-2.128  c1.018-1.042,1.087-1.726,0-2.839L25.245,21L36.211,9.775c1.027-1.055,1.047-1.767,0-2.84l-2.078-2.127  c-1.078-1.104-1.744-1.053-2.773,0L21.002,15.412L10.645,4.809c-1.029-1.053-1.695-1.104-2.773,0L5.794,6.936  c-1.048,1.073-1.029,1.785,0,2.84L16.759,21L5.794,32.225c-1.087,1.113-1.029,1.797,0,2.839l2.077,2.128  c1.049,1.083,1.725,1.072,2.773,0L21.002,26.588z">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX=".45" ScaleY=".45"/>
+                                <TranslateTransform X="10.5" Y="10.5"/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                </Grid>
+                <StackPanel Grid.Column="1" Margin="5">
+                    <Label Style="{StaticResource TieuDe}" Content="Đã hủy"/>
+                    <Label Style="{StaticResource NoiDung}" Content="{Binding DonHangs, Converter={local:Converter_DanhSachSangCount}}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <Border Margin="8" Background="#80f3e8ff" CornerRadius="30">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid Width="40" Height="40" Margin="5">
+                    <Ellipse Fill="#f3e8ff"/>
+                    <Canvas>
+                        <Path Fill="#9333ea" Data="M12.98,43.064c0,1.599-1.296,2.896-2.896,2.896H5.876c-1.6-0.001-2.896-1.297-2.896-2.896V17.855    c0-1.599,1.296-2.896,2.896-2.896h4.209c1.599,0,2.896,1.296,2.896,2.896L12.98,43.064L12.98,43.064z"/>
+                        <Path Fill="#9333ea" Data="M27.98,43.064c0,1.599-1.296,2.896-2.896,2.896h-4.208c-1.599,0-2.896-1.296-2.896-2.896V2.896    C17.979,1.297,19.275,0,20.875,0h4.208c1.601,0.001,2.896,1.297,2.896,2.896V43.064z"/>
+                        <Path Fill="#9333ea" Data="M42.98,43.064c0,1.599-1.296,2.896-2.896,2.896h-4.209c-1.599,0-2.896-1.296-2.896-2.896V9.98    c0-1.599,1.296-2.896,2.896-2.896h4.209c1.601,0,2.896,1.297,2.896,2.896V43.064z"/>
+                        <Path Fill="#9333ea" Data=""/>
+                        <Canvas.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX=".4" ScaleY=".4"/>
+                                <TranslateTransform X="10.5" Y="10.5"/>
+                            </TransformGroup>
+                        </Canvas.RenderTransform>
+                    </Canvas>
+                </Grid>
+                <StackPanel Grid.Column="1" Margin="5">
+                    <Label Style="{StaticResource TieuDe}" Content="Doanh thu"/>
+                    <Label Style="{StaticResource NoiDung}" Content="{Binding DonHangs, Converter={local:Converter_DanhSachSangCount}}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </UniformGrid>-->

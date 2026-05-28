@@ -1,0 +1,50 @@
+﻿<Window x:Class="Shaballa.Win_ChiTietTaiKhoan"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Shaballa"
+        mc:Ignorable="d"
+        Title="Win_ChiTietTaiKhoan"  
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize" 
+        Height="600" 
+        Width="500">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Margin="20,5">
+            <TextBlock Text="Sửa thông tin tài khoản" Margin="5" Style="{StaticResource TextBlock}" HorizontalAlignment="Left" FontWeight="Heavy" FontSize="17"/>
+            <StackPanel Margin="5">
+                <TextBlock Text="Tên tài khoản" Style="{StaticResource TieuDeGray}"/>
+                <local:WatermarkTextBox Text="{Binding TenNhanVien, UpdateSourceTrigger=PropertyChanged}" Watermark="Nhập tên nhân viên" Style="{StaticResource WatermarkTextBox}" Margin="0,5"/>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="Mật khẩu" Style="{StaticResource TieuDeGray}"/>
+                <local:WatermarkTextBox Text="{Binding MatKhau, UpdateSourceTrigger=PropertyChanged}" Watermark="Nhập mật khẩu" Style="{StaticResource WatermarkTextBox}" Margin="0,5"/>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="Số điện thoại" Style="{StaticResource TieuDeGray}"/>
+                <local:WatermarkTextBox Text="{Binding SoDienThoai, UpdateSourceTrigger=PropertyChanged}" Watermark="Nhập số điện thoại" Style="{StaticResource WatermarkTextBox}" Margin="0,5"/>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="Địa chỉ" Style="{StaticResource TieuDeGray}"/>
+                <local:WatermarkTextBox Text="{Binding DiaChi, UpdateSourceTrigger=PropertyChanged}" Watermark="Nhập địa chỉ" Style="{StaticResource WatermarkTextBox}" Margin="0,5"/>
+            </StackPanel>
+            <Border Style="{StaticResource CornerRadiusBorder}" BorderBrush="WhiteSmoke" Padding="10" Margin="5">
+                <StackPanel>
+                    <TextBlock Text="Chi tiết" Style="{StaticResource TieuDe}" Margin="2"/>
+                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" Height="56" Grid.Row="1" Margin="2">
+                        <TextBlock Text="{Binding ThongTin}" VerticalAlignment="Top" Style="{StaticResource TieuDeGray}" FontSize="13"/>
+                    </ScrollViewer>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="5" Margin="20,0">
+            <Button Content="Hủy" Command="{Binding CmdColse}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Style="{StaticResource CornerRadiusButton}" Padding="16,8" FontWeight="Heavy" Margin="5"/>
+            <Button Content="Xác nhận" IsEnabled="{Binding IsCanLuu}" Command="{Binding CmdLuu}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Style="{StaticResource HighLightButton}" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Window>

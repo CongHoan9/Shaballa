@@ -1,0 +1,155 @@
+﻿<Page x:Class="Shaballa.Page_TongQuan"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Shaballa"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Page_TongQuan">
+    <Grid>
+        <Border Style="{StaticResource Layout}">
+            <Grid Margin="8">
+                <Grid.Resources>
+                    <Style x:Key="BorderShadown" TargetType="Border" BasedOn="{StaticResource BorderShadown}">
+                        <Setter Property="Margin" Value="8"/>
+                    </Style>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>   
+                <UniformGrid Rows="1">
+                    <UniformGrid.Resources>
+                        <Style x:Key="Layout" TargetType="Border" BasedOn="{StaticResource Layout}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="CornerRadius" Value="5"/>
+                            <Setter Property="Padding" Value="8"/>
+                            <Setter Property="Margin" Value="10"/>
+                        </Style>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="White"/>
+                        </Style>
+                        <Style TargetType="Canvas">
+                            <Setter Property="RenderTransformOrigin" Value=".5,.5"/>
+                        </Style>
+                    </UniformGrid.Resources>
+                    <Grid>
+                        <Border Style="{StaticResource BorderShadown}"/>
+                        <Grid Margin="20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Border Style="{StaticResource Layout}" Background="#3b82f6"> 
+                                <Canvas Height="24" Width="24">
+                                    <Path Data="M9 13C7.33726 13 5.73823 13.7585 4.80115 14.9004C4.32556 15.48 3.99121 16.1971 3.9621 16.9919C3.93237 17.8036 4.22536 18.5958 4.82958 19.2871C6.30215 20.9716 8.65327 22 12 22C15.3467 22 17.6979 20.9716 19.1704 19.2871C19.7746 18.5958 20.0676 17.8036 20.0379 16.9919C20.0088 16.1971 19.6744 15.48 19.1989 14.9004C18.2618 13.7585 16.6627 13 15 13H9Z"/>
+                                    <Path Data="M12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2Z"/>
+                                    <Canvas.RenderTransform>
+                                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                    </Canvas.RenderTransform>
+                                </Canvas>
+                            </Border>
+                            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="2">
+                                <StackPanel.Resources>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource TieuDeGray}">
+                                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                                        <Setter Property="Margin" Value="2,0"/>
+                                    </Style>
+                                </StackPanel.Resources>
+                                <TextBlock Text="Nhân viên"/>
+                                <TextBlock Text="5" FontWeight="Heavy" FontSize="17" Foreground="#303030"/>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Border Style="{StaticResource BorderShadown}"/>
+                        <Grid Margin="20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Border Style="{StaticResource Layout}" Background="#22c55e">
+                                <Canvas Height="24" Width="24">
+                                    <Path Data="M4 9.65685C4 8.83935 4 8.4306 4.15224 8.06306C4.30448 7.69552 4.59351 7.40649 5.17157 6.82843L5.82843 6.17157C6.40649 5.59351 6.69552 5.30448 7.06306 5.15224C7.4306 5 7.83935 5 8.65685 5H15.3431C16.1606 5 16.5694 5 16.9369 5.15224C17.3045 5.30448 17.5935 5.59351 18.1716 6.17157L18.8284 6.82843C19.4065 7.40649 19.6955 7.69552 19.8478 8.06306C20 8.4306 20 8.83935 20 9.65685V10H4V9.65685ZM15.3332 12H20V16C20 17.8856 20 18.8284 19.4142 19.4142C18.8284 20 17.8856 20 16 20H8C6.11438 20 5.17157 20 4.58579 19.4142C4 18.8284 4 17.8856 4 16V12H8.6665V15.6667C8.6665 16.4315 8.6665 16.8139 8.76541 17.0194C8.98621 17.4782 9.51649 17.6979 9.99705 17.5296C10.2123 17.4542 10.4827 17.1838 11.0235 16.643L11.0235 16.643C11.274 16.3925 11.3992 16.2673 11.5324 16.1969C11.8248 16.0422 12.1748 16.0422 12.4673 16.1969C12.6004 16.2673 12.7257 16.3925 12.9761 16.643C13.517 17.1838 13.7874 17.4542 14.0026 17.5296C14.4832 17.6979 15.0135 17.4782 15.2343 17.0194C15.3332 16.8139 15.3332 16.4315 15.3332 15.6667V12Z"/>
+                                    <Canvas.RenderTransform>
+                                        <ScaleTransform ScaleX="1.25" ScaleY="1.25"/>
+                                    </Canvas.RenderTransform>
+                                </Canvas>
+                            </Border>
+                            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="2">
+                                <StackPanel.Resources>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource TieuDeGray}">
+                                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                                        <Setter Property="Margin" Value="2,0"/>
+                                    </Style>
+                                </StackPanel.Resources>
+                                <TextBlock Text="Tổng kho"/>
+                                <TextBlock Text="5" FontWeight="Heavy" FontSize="17" Foreground="#303030"/>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Border Style="{StaticResource BorderShadown}"/>
+                        <Grid Margin="20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Border Style="{StaticResource Layout}" Background="#eab308">
+                                <Canvas Height="24" Width="24">
+                                    <Path Height="400" Width="450" Data="M246.312928,5.62892705 C252.927596,9.40873724 258.409564,14.8907053 262.189374,21.5053731 L444.667042,340.84129 C456.358134,361.300701 449.250007,387.363834 428.790595,399.054926 C422.34376,402.738832 415.04715,404.676552 407.622001,404.676552 L42.6666667,404.676552 C19.1025173,404.676552 7.10542736e-15,385.574034 7.10542736e-15,362.009885 C7.10542736e-15,354.584736 1.93772021,347.288125 5.62162594,340.84129 L188.099293,21.5053731 C199.790385,1.04596203 225.853517,-6.06216498 246.312928,5.62892705 Z M224,272 C208.761905,272 197.333333,283.264 197.333333,298.282667 C197.333333,313.984 208.415584,325.248 224,325.248 C239.238095,325.248 250.666667,313.984 250.666667,298.624 C250.666667,283.264 239.238095,272 224,272 Z M245.333333,106.666667 L202.666667,106.666667 L202.666667,234.666667 L245.333333,234.666667 L245.333333,106.666667 Z">
+                                        <Path.RenderTransform>
+                                            <TransformGroup>
+                                                <TranslateTransform X="70" Y="100"/>
+                                                <ScaleTransform ScaleX=".04" ScaleY=".04"/>
+                                            </TransformGroup>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                    <Canvas.RenderTransform>
+                                        <ScaleTransform ScaleX="1.25" ScaleY="1.25"/>
+                                    </Canvas.RenderTransform>
+                                </Canvas>
+                            </Border>
+                            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="2">
+                                <StackPanel.Resources>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource TieuDeGray}">
+                                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                                        <Setter Property="Margin" Value="2,0"/>
+                                    </Style>
+                                </StackPanel.Resources>
+                                <TextBlock Text="Sắp hết hàng"/>
+                                <TextBlock Text="5" FontWeight="Heavy" FontSize="17" Foreground="#303030"/>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Border Style="{StaticResource BorderShadown}"/>
+                        <Grid Margin="20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Border Style="{StaticResource Layout}" Background="#a855f7">
+                                <Canvas Height="24" Width="24">
+                                    <Path Data="M22 14V12C22 11.161 22 10.4153 21.9871 9.75H2.0129C2 10.4153 2 11.161 2 12V14C2 17.7712 2 19.6569 3.17157 20.8284C4.34315 22 6.22876 22 10 22H14C17.7712 22 19.6569 22 20.8284 20.8284C22 19.6569 22 17.7712 22 14Z"/>                                                                                                                                                        
+                                    <Path Data="M7.75 2.5C7.75 2.08579 7.41421 1.75 7 1.75C6.58579 1.75 6.25 2.08579 6.25 2.5V4.07926C4.81067 4.19451 3.86577 4.47737 3.17157 5.17157C2.47737 5.86577 2.19451 6.81067 2.07926 8.25H21.9207C21.8055 6.81067 21.5226 5.86577 20.8284 5.17157C20.1342 4.47737 19.1893 4.19451 17.75 4.07926V2.5C17.75 2.08579 17.4142 1.75 17 1.75C16.5858 1.75 16.25 2.08579 16.25 2.5V4.0129C15.5847 4 14.839 4 14 4H10C9.16097 4 8.41527 4 7.75 4.0129V2.5Z"/>
+                                </Canvas>
+                            </Border>
+                            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="2">
+                                <StackPanel.Resources>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource TieuDeGray}">
+                                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                                        <Setter Property="Margin" Value="2,0"/>
+                                    </Style>
+                                </StackPanel.Resources>
+                                <TextBlock Text="Ca làm việc"/>
+                                <TextBlock Text="5" FontWeight="Heavy" FontSize="17" Foreground="#303030"/>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </UniformGrid>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

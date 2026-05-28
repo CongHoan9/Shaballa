@@ -1,0 +1,50 @@
+﻿<Window x:Class="Shaballa.Win_ThemLichLam"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Shaballa" d:DataContext="{d:DesignInstance Type=local:ViewModel_Win_ThemLichLam}"
+        mc:Ignorable="d"
+        Title="Thêm ca làm việc"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize" 
+        Height="600" 
+        Width="500">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Margin="20,10">
+            <TextBlock Text="Thêm ca làm việc mới" Style="{StaticResource TextBlock}" HorizontalAlignment="Left" FontWeight="Heavy" FontSize="17"/>
+            <StackPanel Margin="0,5">
+                <TextBlock Text="Nhân viên" Style="{StaticResource TieuDeGray}"/>
+                <local:DoubleComboBox Margin="0,5" ItemsSource="{Binding Accounts}" SelectedItem="{Binding AccountSelected}" DisplayMemberPath="Name"/>
+            </StackPanel>
+            <StackPanel Margin="0,5">
+                <TextBlock Text="Vai trò" Style="{StaticResource TieuDeGray}"/>
+                <local:DoubleComboBox Margin="0,5" ItemsSource="{Binding VaiTros}" SelectedItem="{Binding VaiTroSelected}"/>
+            </StackPanel>
+            <StackPanel Margin="0,5">
+                <TextBlock Text="Ngày làm việc" Style="{StaticResource TieuDeGray}"/>
+                <DatePicker Margin="0,5" Text="{Binding Time, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+            <StackPanel Margin="0,5">
+                <TextBlock Text="Ca làm" Style="{StaticResource TieuDeGray}"/>
+                <local:DoubleComboBox Margin="0,5" ItemsSource="{Binding Calams}" SelectedItem="{Binding CaLamSelected}"/>
+            </StackPanel> 
+            <Border Style="{StaticResource CornerRadiusBorder}" BorderBrush="WhiteSmoke" Padding="10" Margin="0,10" Grid.Row="4">
+                <StackPanel>
+                    <TextBlock Text="Chi tiết" Style="{StaticResource TieuDe}" Margin="2"/>
+                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" MaxHeight="56" Grid.Row="1" Margin="2">
+                        <local:WatermarkTextBox Text="{Binding ThongTin}" IsEnabled="False" Watermark="Chi tiết ca làm..." Style="{StaticResource TransparentTextBox}"/>
+                    </ScrollViewer>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="5" Margin="15,0">
+            <Button Content="Hủy"  Command="{Binding CmdColse}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Style="{StaticResource CornerRadiusButton}" Padding="16,8" FontWeight="Heavy" Margin="5"/>
+            <Button Content="Xác nhận" Command="{Binding CmdLuu}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Style="{StaticResource HighLightButton}" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Window>

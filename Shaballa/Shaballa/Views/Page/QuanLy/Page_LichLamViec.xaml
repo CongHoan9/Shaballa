@@ -1,0 +1,136 @@
+﻿<Page x:Class="Shaballa.Page_LichLamViec"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Shaballa" d:DataContext="{d:DesignInstance Type=local:ViewModel_Page_LichLamViec}"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Page_LichLamViec">
+    <Border Style="{StaticResource Layout}">
+        <Border Style="{StaticResource CornerRadiusBorder}" Background="#fafafa">
+            <local:CornerRadiusGrid CornerRadius="6">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Background="White" Height="100">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Lịch làm việc" Margin="20,0" VerticalAlignment="Bottom" Style="{StaticResource TextBlock}" HorizontalAlignment="Left" FontWeight="Heavy" FontSize="17"/>
+                    <TextBlock Text="Quản lý lịch làm việc của nhân viên theo tuần" Margin="20,0" Grid.Row="1" VerticalAlignment="Top" Style="{StaticResource TieuDeGray}" HorizontalAlignment="Left"/>
+                    <Button Command="{Binding CmdThemLichLam}" Content="+ Thêm lịch làm" Margin="20" Grid.RowSpan="2" VerticalAlignment="Center" Style="{StaticResource HighLightButton}" Grid.Column="1"/>
+                </Grid>
+                <Viewbox Grid.Row="2">
+                    <Grid Margin="50,10,100,20">
+                        <Grid.Resources>
+                            <Style TargetType="TextBlock" BasedOn="{StaticResource TieuDe}">
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="FontSize" Value="20"/>
+                                <Setter Property="Margin" Value="5"/>
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="1400"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="600"/>
+                        </Grid.RowDefinitions>
+                        <UniformGrid Columns="1" Grid.Row="1">
+                            <TextBlock Text="Tối"/>
+                            <TextBlock Text="Chiều"/>
+                            <TextBlock Text="Sáng"/>
+                        </UniformGrid>
+                        <UniformGrid Grid.Column="1" Rows="1">
+                            <TextBlock Text="Thứ 2"/>
+                            <TextBlock Text="Thứ 3"/>
+                            <TextBlock Text="Thứ 4"/>
+                            <TextBlock Text="Thứ 5"/>
+                            <TextBlock Text="Thứ 6"/>
+                            <TextBlock Text="Thứ 7"/>
+                            <TextBlock Text="Chủ nhật"/>
+                        </UniformGrid>
+                        <Grid Grid.Column="1" Grid.Row="1">
+                            <Border Style="{StaticResource BorderShadown}"/>
+                            <local:CornerRadiusGrid CornerRadius="10">
+                                <UniformGrid Columns="1" Rows="3">
+                                    <Border Background="#ececec"/>
+                                    <Border Background="#fffbeb"/>
+                                    <Border Background="#f0fdf4"/>
+                                </UniformGrid>
+                                <UniformGrid Columns="7">
+                                    <UniformGrid.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="Background" Value="#e0e0e0"/>
+                                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                                            <Setter Property="Margin" Value="1,-1,-1,-1"/>
+                                            <Setter Property="Width" Value="1"/>
+                                        </Style>
+                                    </UniformGrid.Resources>
+                                    <Border/>
+                                    <Border/>
+                                    <Border/>
+                                    <Border/>
+                                    <Border/>
+                                    <Border/>
+                                </UniformGrid>
+                                <ItemsControl ItemsSource="{Binding Lichs}">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+                                            </Grid>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    <ItemsControl.ItemContainerStyle>
+                                        <StaticResource ResourceKey="Cautruc"/>
+                                    </ItemsControl.ItemContainerStyle>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                                                <ItemsControl ItemsSource="{Binding Accounts}" Margin="3">
+                                                    <ItemsControl.Resources>
+                                                        <Style TargetType="ItemsControl">
+                                                            <Setter Property="ItemTemplate" Value="{StaticResource Lich}"/>
+                                                        </Style>
+                                                    </ItemsControl.Resources>
+                                                    <ItemsControl.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <UniformGrid Columns="2"/>
+                                                        </ItemsPanelTemplate>
+                                                    </ItemsControl.ItemsPanel>
+                                                </ItemsControl>
+                                            </ScrollViewer>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </local:CornerRadiusGrid>
+                        </Grid>
+                    </Grid>
+                </Viewbox>
+            </local:CornerRadiusGrid>
+        </Border>
+    </Border>
+</Page>

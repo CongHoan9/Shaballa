@@ -1,0 +1,336 @@
+﻿<Page x:Class="Shaballa.Page_HoaDonBan"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Shaballa"   
+      d:DataContext="{d:DesignInstance Type=local:ViewModel_Page_HoaDonBan}"
+      mc:Ignorable="d" 
+      d:DesignWidth="1000"
+      d:DesignHeight="700"
+      Title="Hóa đơn đã bán">
+    <local:ResponsiveScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*" MinWidth="510"/>
+                <local:ResponsiveColumn Width="3*" ResponsiveSize="900" NewSize="0"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <local:ResponsiveRow ResponsiveSize="900" NewSize="Auto"/>
+                <local:ResponsiveRow ResponsiveSize="900" NewSize="Auto" Height="0"/>
+            </Grid.RowDefinitions>
+            <Border Style="{StaticResource Layout}">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <StackPanel>
+                        <ContentControl>
+                            <ContentControl.Style>
+                                <Style TargetType="ContentControl">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="ContentControl">
+                                                <Grid Margin="8">
+                                                    <Border Style="{StaticResource BorderShadown}"/>
+                                                    <StackPanel>
+                                                        <Grid>
+                                                            <Grid.Resources>
+                                                                <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlock}">
+                                                                    <Setter Property="FontSize" Value="14"/>
+                                                                </Style>
+                                                            </Grid.Resources>
+                                                            <Grid Margin="5">
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="Auto"/>
+                                                                    <ColumnDefinition Width="Auto"/>
+                                                                    <ColumnDefinition/>
+                                                                    <ColumnDefinition Width="Auto"/>
+                                                                </Grid.ColumnDefinitions>
+                                                                <Path Height="25" Width="25" Margin="3" Data="M17.8258 5H6.17422C5.31987 5 4.85896 6.00212 5.41496 6.65079L9.75926 11.7191C9.91461 11.9004 10 12.1312 10 12.3699V17.382C10 17.7607 10.214 18.107 10.5528 18.2764L12.5528 19.2764C13.2177 19.6088 14 19.1253 14 18.382V12.3699C14 12.1312 14.0854 11.9004 14.2407 11.7191L18.585 6.65079C19.141 6.00212 18.6801 5 17.8258 5Z"/>
+                                                                <TextBlock Text="Bộ lọc hóa đơn" Grid.Column="1" Margin="4"/>
+                                                                <ToggleButton x:Name="T1" Grid.Column="4">
+                                                                    <ToggleButton.Style>
+                                                                        <Style TargetType="ToggleButton">
+                                                                            <Setter Property="RenderTransformOrigin" Value=".5,.5"/>
+                                                                            <Setter Property="Background" Value="Transparent"/>
+                                                                            <Setter Property="Cursor" Value="Hand"/>
+                                                                            <Setter Property="Template">
+                                                                                <Setter.Value>
+                                                                                    <ControlTemplate TargetType="ToggleButton">
+                                                                                        <Grid Background="{TemplateBinding Background}">
+                                                                                            <Path IsHitTestVisible="False" Data="M8 10L12 14L16 10" Height="24" Width="24" Stroke="#303030" Fill="Transparent" StrokeThickness="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                                                        </Grid>
+                                                                                    </ControlTemplate>
+                                                                                </Setter.Value>
+                                                                            </Setter>
+                                                                        </Style>
+                                                                    </ToggleButton.Style>
+                                                                </ToggleButton>
+                                                            </Grid>
+                                                        </Grid>
+                                                        <StackPanel x:Name="S1" Visibility="Collapsed" Margin="5">
+                                                            <StackPanel.Resources>
+                                                                <Style x:Key="BorderItems" TargetType="Border" BasedOn="{StaticResource BorderItems}">
+                                                                    <Setter Property="Background" Value="#fbfbfb"/>
+                                                                    <Setter Property="Margin" Value="5"/>
+                                                                </Style>
+                                                                <Style x:Key="TieuDeGray" TargetType="TextBlock" BasedOn="{StaticResource TieuDeGray}">
+                                                                    <Setter Property="Margin" Value="5"/>
+                                                                </Style>
+                                                                <Style TargetType="local:NumericUpDown" BasedOn="{StaticResource NumericUpDown}">
+                                                                    <Setter Property="Scroll" Value="True"/>
+                                                                    <Setter Property="MinValue" Value="0"/>
+                                                                    <Setter Property="Margin" Value="6"/>
+                                                                </Style>
+                                                            </StackPanel.Resources>
+                                                            <StackPanel Margin="5">
+                                                                <TextBlock Style="{StaticResource TieuDeGray}" Text="Lọc theo khoảng"/>
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <StackPanel.Resources>
+                                                                        <Style TargetType="RadioButton">
+                                                                            <Setter Property="Background" Value="#f0f0f0"/>
+                                                                            <Setter Property="Foreground" Value="#1f2937"/>
+                                                                            <Setter Property="FontWeight" Value="Medium"/>
+                                                                            <Setter Property="Cursor" Value="Hand"/>
+                                                                            <Setter Property="Margin" Value="5"/>
+                                                                            <Setter Property="Template">
+                                                                                <Setter.Value>
+                                                                                    <ControlTemplate TargetType="RadioButton">
+                                                                                        <Border Background="{TemplateBinding Background}" CornerRadius="13">
+                                                                                            <ContentPresenter Margin="10,5,10,7"/>
+                                                                                        </Border>
+                                                                                    </ControlTemplate>
+                                                                                </Setter.Value>
+                                                                            </Setter>
+                                                                            <Style.Triggers>
+                                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                                    <Setter Property="Background" Value="#e5e7eb"/>
+                                                                                </Trigger>
+                                                                                <Trigger Property="IsChecked" Value="True">
+                                                                                    <Setter Property="Foreground" Value="White"/>
+                                                                                    <Setter Property="Background" Value="#81b64c"/>
+                                                                                </Trigger>
+                                                                            </Style.Triggers>
+                                                                        </Style>
+                                                                    </StackPanel.Resources>
+                                                                    <RadioButton Content="Tất cả" IsChecked="True"/>
+                                                                    <RadioButton Content="Hôm nay"/>
+                                                                    <RadioButton Content="Tuần này"/>
+                                                                    <RadioButton Content="Tháng này"/>
+                                                                    <RadioButton Content="Năm nay"/>
+                                                                    <RadioButton Content="2024"/>
+                                                                </StackPanel>
+                                                            </StackPanel>
+                                                            <UniformGrid Rows="1" Columns="3" Margin="3">
+                                                                <StackPanel Margin="2">
+                                                                    <TextBlock Style="{StaticResource TieuDeGray}" Text="Từ thời gian"/>
+                                                                    <DatePicker Margin="6"/>
+                                                                </StackPanel>
+                                                                <StackPanel Margin="2">
+                                                                    <TextBlock Style="{StaticResource TieuDeGray}" Text="Đến thời gian"/>
+                                                                    <DatePicker Margin="6"/>
+                                                                </StackPanel>
+                                                                <StackPanel Margin="2">
+                                                                    <TextBlock Style="{StaticResource TieuDeGray}" Text="Ca làm"/>
+                                                                    <local:DoubleComboBox Margin="6"/>
+                                                                </StackPanel>
+                                                            </UniformGrid>
+                                                            <UniformGrid Rows="1" Columns="3" Margin="3">
+                                                                <StackPanel Margin="2">
+                                                                    <TextBlock Style="{StaticResource TieuDeGray}" Text="Phương thức thanh toán"/>
+                                                                    <local:DoubleComboBox ItemsSource="{Binding ThanhToanTypes}" SelectedValue="{Binding SelectedThanhToanType}" Margin="6"/>
+                                                                </StackPanel>
+                                                                <StackPanel Margin="2">
+                                                                    <TextBlock Style="{StaticResource TieuDeGray}" Text="Đơn tối thiểu (VNĐ)"/>
+                                                                    <local:NumericUpDown Watermark="Tối thiểu"/>
+                                                                </StackPanel>
+                                                                <StackPanel Margin="2">
+                                                                    <TextBlock Style="{StaticResource TieuDeGray}" Text="Đơn tối đa (VNĐ)"/>
+                                                                    <local:NumericUpDown Watermark="Tối đa"/>
+                                                                </StackPanel>
+                                                            </UniformGrid>
+                                                            <Button Style="{StaticResource CornerRadiusButton}" Content="Xóa bộ lọc" Margin="10" HorizontalAlignment="Right"/>
+                                                        </StackPanel>
+                                                    </StackPanel>
+                                                </Grid>
+                                                <ControlTemplate.Triggers>
+                                                    <DataTrigger Binding="{Binding IsChecked, ElementName=T1}" Value="True">
+                                                        <Setter TargetName="S1" Property="Visibility" Value="Visible"/>
+                                                        <Setter TargetName="T1" Property="RenderTransform">
+                                                            <Setter.Value>
+                                                                <RotateTransform Angle="180"/>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </DataTrigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ContentControl.Style>
+                        </ContentControl>
+                        <local:WatermarkTextBox Watermark="Tìm kiếm theo mã hóa đơn, tổng tiền, đơn giá..." Style="{StaticResource SearchTextBox}" Margin="8"/>
+                        <Grid Margin="12,0">
+                            <Grid.Resources>
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlock}">
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    <Setter Property="Foreground" Value="#606060"/>
+                                    <Setter Property="FontSize" Value="14"/>
+                                    <Setter Property="Margin" Value="6"/>
+                                </Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    <Setter Property="Foreground" Value="#606060"/>
+                                    <Setter Property="FontWeight" Value="Medium"/>
+                                    <Setter Property="FontSize" Value="14"/>
+                                    <Setter Property="Cursor" Value="Hand"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <StackPanel Background="Transparent" Orientation="Horizontal">
+                                                    <ContentPresenter Margin="6"/>
+                                                    <Path Height="20" Fill="{TemplateBinding Foreground}" Data="M7 5C7.55228 5 8 5.44772 8 6V15.5858L10.2929 13.2929C10.6834 12.9024 11.3166 12.9024 11.7071 13.2929C12.0976 13.6834 12.0976 14.3166 11.7071 14.7071L7.70711 18.7071C7.31658 19.0976 6.68342 19.0976 6.29289 18.7071L2.29289 14.7071C1.90237 14.3166 1.90237 13.6834 2.29289 13.2929C2.68342 12.9024 3.31658 12.9024 3.70711 13.2929L6 15.5858V6C6 5.44772 6.44772 5 7 5ZM16.2929 5.29289C16.6834 4.90237 17.3166 4.90237 17.7071 5.29289L21.7071 9.29289C22.0976 9.68342 22.0976 10.3166 21.7071 10.7071C21.3166 11.0976 20.6834 11.0976 20.2929 10.7071L18 8.41421V18C18 18.5523 17.5523 19 17 19C16.4477 19 16 18.5523 16 18V8.41421L13.7071 10.7071C13.3166 11.0976 12.6834 11.0976 12.2929 10.7071C11.9024 10.3166 11.9024 9.68342 12.2929 9.29289L16.2929 5.29289Z">
+                                                        <Path.RenderTransform>
+                                                            <TransformGroup>
+                                                                <ScaleTransform ScaleX=".7" ScaleY=".7"/>
+                                                            </TransformGroup>
+                                                        </Path.RenderTransform>
+                                                    </Path>
+                                                </StackPanel>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Foreground" Value="#81b64c"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Grid.Resources>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition MinWidth="80"/>
+                                <ColumnDefinition MinWidth="80"/>
+                                <ColumnDefinition Width="2*"/>
+                                <local:ResponsiveColumn Width="3*" ResponsiveSize="500" NewSize="0"/>
+                                <ColumnDefinition MinWidth="100"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Mã đơn"/>
+                            <TextBlock Text="Mã Bàn" Grid.Column="1"/>
+                            <Button Command="{Binding CmdSort}" CommandParameter="Time" Content="Thời gian" Grid.Column="2"/>
+                            <Button Command="{Binding CmdSort}" CommandParameter="Items.Tong" Content="Danh sách món" Grid.Column="3"/>
+                            <Button Command="{Binding CmdSort}" CommandParameter="TongTien" Content="Tổng tiền" Grid.Column="4" HorizontalAlignment="Right"/>
+                        </Grid>
+                        <Border Style="{StaticResource Line}" Margin="8,4"/>
+                    </StackPanel>
+                    <ScrollViewer Grid.Row="1" Margin="4" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                        <ItemsControl ItemsSource="{Binding HoaDonBans}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Style="{StaticResource BorderTranslateX}" Margin="4">
+                                        <Grid>
+                                            <Border Style="{StaticResource CornerRadiusBorderMouseOver}"/>
+                                            <Grid Margin="6">
+                                                <Grid.Resources>
+                                                    <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlock}">
+                                                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                                                        <Setter Property="Foreground" Value="#303030"/>
+                                                        <Setter Property="Margin" Value="6"/>
+                                                    </Style>
+                                                </Grid.Resources>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition MinWidth="80"/>
+                                                    <ColumnDefinition MinWidth="80"/>
+                                                    <ColumnDefinition Width="2*"/>
+                                                    <local:ResponsiveColumn Width="3*" ResponsiveSize="500" NewSize="0"/>
+                                                    <ColumnDefinition MinWidth="100"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Text="{Binding ID}" Foreground="#81b64c" FontWeight="Heavy"/>
+                                                <TextBlock Text="{Binding DiemPhucVu}" Grid.Column="1"/>
+                                                <TextBlock Text="{Binding Time, StringFormat={}{0:d/M/yyyy - h:mm}}" Grid.Column="2"/>
+                                                <local:ScrollTextBox Text="{Binding Items, Mode=OneWay, Converter={local:Converter_ListToString}}" Margin="6" Grid.Column="3" Foreground="Gray"/>
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="4" Grid.Column="4">
+                                                    <StackPanel.Resources>
+                                                        <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+                                                            <Setter Property="Margin" Value="2"/>
+                                                        </Style>
+                                                    </StackPanel.Resources>
+                                                    <TextBlock Text="{Binding TongTien, StringFormat={}{0:N0} ₫}" Foreground="#3b82f6" FontWeight="Bold"/>
+                                                </StackPanel>
+                                            </Grid>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+            <local:CanJumpGrid Grid.Column="1" ResponsiveSize="900" NewColumn="0" NewRow="1">
+                <Border Style="{StaticResource Layout}">
+                    <Grid Margin="10">
+                        <Grid.Resources>
+                            <Style TargetType="TextBlock" BasedOn="{StaticResource TieuDeGray}">
+                                <Setter Property="FontSize" Value="14"/>
+                                <Setter Property="Margin" Value="5"/>
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Border Style="{StaticResource Layout}" Background="#638f48">
+                            <StackPanel Margin="15, 10, 10 ,10">
+                                <StackPanel.Resources>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource TieuDeGray}">
+                                        <Setter Property="Foreground" Value="White"/>
+                                        <Setter Property="Margin" Value="0"/>
+                                    </Style>
+                                </StackPanel.Resources>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="Doanh thu hôm nay"/>
+                                    <Path Fill="White" Grid.Column="1" Data="M4,23a1,1,0,0,1-1-1V19a1,1,0,0,1,2,0v3A1,1,0,0,1,4,23Zm9-1V15a1,1,0,0,0-2,0v7a1,1,0,0,0,2,0Zm7-11a1,1,0,0,0-1,1V22a1,1,0,0,0,2,0V12A1,1,0,0,0,20,11Zm.382-9.923A.991.991,0,0,0,20,1H16a1,1,0,0,0,0,2h1.586L12,8.586,8.707,5.293a1,1,0,0,0-1.414,0l-4,4a1,1,0,0,0,1.414,1.414L8,7.414l3.293,3.293a1,1,0,0,0,1.414,0L19,4.414V6a1,1,0,0,0,2,0V2a1,1,0,0,0-.618-.923Z">
+                                        <Path.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform ScaleX=".8" ScaleY=".8"/>
+                                            </TransformGroup>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                </Grid>
+                                <TextBlock Text="930.000 ₫" FontSize="25" FontWeight="Heavy"/>
+                            </StackPanel>
+                        </Border>
+                        <StackPanel Margin="4" Grid.Row="1">
+                            <TextBlock Text="Biểu đồ doanh thu tuần"/>
+                            <Grid Margin="5">
+                                <Border Style="{StaticResource BorderShadown}"/>
+                                <ItemsControl Height="100">
+
+                                </ItemsControl>
+                            </Grid>
+                        </StackPanel>
+                        <Grid Margin="5" Grid.Row="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Sản phầm bán chạy"/>
+                            <Border CornerRadius="10" Margin="4" Background="#e2f0cd" Grid.Row="1">
+                                <ItemsControl>
+
+                                </ItemsControl>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </local:CanJumpGrid>
+        </Grid>
+    </local:ResponsiveScrollViewer>
+</Page>
