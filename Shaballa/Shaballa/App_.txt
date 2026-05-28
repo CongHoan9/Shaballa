@@ -1,0 +1,99 @@
+﻿<DataTemplate x:Key="Menu">
+            <DataTemplate.Resources>
+                <Style x:Key="CornerRadiusBorder" TargetType="Border" BasedOn="{StaticResource CornerRadiusBorder}">
+                    <Setter Property="Background" Value="#50dddddd"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Height" Value="300"/>
+                    <Setter Property="Margin" Value="8"/>
+                </Style>
+            </DataTemplate.Resources>
+            <Border Style="{StaticResource CornerRadiusBorder}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Border Background="White" CornerRadius="6,6,0,0" Padding="10">
+                        <TextBlock Text="{Binding Nhom}" Style="{StaticResource TieuDeGray}" FontWeight="Heavy" HorizontalAlignment="Center" Foreground="#638f48"/>
+                    </Border>
+                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" Padding="4" Grid.Row="1">
+                        <ItemsControl ItemsSource="{Binding Items}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Height="50" Style="{StaticResource CornerRadiusBorder}" Background="#A0ffffff" Margin="4">
+                                        <Grid Margin="2">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <local:CornerRadiusGrid Height="40" Width="40" Margin="2" CornerRadius="5" Background="#f5f5f5">
+                                                <Image Source="{Binding Image, Converter={local:Converter_ArraySangBitmap}}"/>
+                                            </local:CornerRadiusGrid>
+                                            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="2">
+                                                <StackPanel.Resources>
+                                                    <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlock}">
+                                                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                                                        <Setter Property="Foreground" Value="#000000"/>
+                                                        <Setter Property="Margin" Value="2,0"/>
+                                                    </Style>
+                                                </StackPanel.Resources>
+                                                <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
+                                                <TextBlock Text="{Binding Gia, StringFormat={}{0:N0} ₫}" FontSize="13"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+        </DataTemplate>
+
+<DataTemplate x:Key="NguyenLieu">
+    <Border Style="{StaticResource BorderTranslate}" Margin="8">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+            <Border Background="{Binding TrangThaiNguyenLieu, Converter={local:Converter_DataSangColor}}" Style="{StaticResource Header}" Cursor="{StaticResource Grab}" local:DragDropBehavior.CanDrag="True">
+                <TextBlock Margin="12,5" Text="{Binding Name}" Style="{StaticResource TieuDe}" Foreground="{Binding TrangThaiNguyenLieu, Converter={local:Converter_DataSangColorForeground}}"/>
+            </Border>
+            <Border Style="{StaticResource DanhMucItem}" BorderBrush="{Binding TrangThaiNguyenLieu, Converter={local:Converter_DataSangColor}}" Background="{Binding TrangThaiNguyenLieu, Converter={local:Converter_DataSangColorBlur}}">
+                <Grid Margin="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <local:CornerRadiusGrid Style="{StaticResource ImageLayout}">
+                            <Image Source="{Binding Image, Converter={local:Converter_ArraySangBitmap}}" Style="{StaticResource ImageMouseOver}"/>
+                        </local:CornerRadiusGrid>
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="2">
+                            <StackPanel.Resources>
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlock}">  
+                                    <Setter Property="Foreground" Value="{Binding TrangThaiNguyenLieu, Converter={local:Converter_DataSangColorForeground}}"/>
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    <Setter Property="FontWeight" Value="Medium"/>
+                                    <Setter Property="FontSize" Value="13.5"/>
+                                    <Setter Property="Margin" Value="2,0"/>
+                                </Style>
+                            </StackPanel.Resources>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding TonKho, StringFormat={}còn {0}}"/>
+                                <TextBlock Text="{Binding DonVi}"/>
+                            </StackPanel>
+                            <TextBlock Text="{Binding Gia, StringFormat={}{0:N0} ₫}" Grid.Column="2"/>
+                        </StackPanel>
+                    </Grid>
+                    <local:WatermarkTextBox Text="{Binding Note}" Style="{StaticResource TransparentTextBox}" Watermark="Nhập mô tả..." Grid.Row="2"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</DataTemplate>

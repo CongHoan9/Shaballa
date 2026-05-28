@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Users\84352\source\repos\Shaballa\Shaballa\Properties\PublishProfiles\ClickOnceProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\Page\NhanVien\Page_CongThuc.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Page\NhanVien\Page_NguyenLieu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Page\QuanLy\Page_LichLamViec.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Page\QuanLy\Page_QuanLyBanGhe.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Page\QuanLy\Page_QuanLyKhongGian.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Page\QuanLy\Page_QuanLyNhanVien.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Page\NhanVien\Page_QuanLyOrder.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Page\NhanVien\Page_ThucDon.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Page\QuanLy\Page_QuanLyThucDon.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Page\QuanLy\Page_TongQuan.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Windown\QuanLy\Win_SuaThongTinNguyenLieu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Windown\QuanLy\Win_SuaThongTinNoiThat.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Windown\NhanVien\Win_TaoDonHang.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Windown\NhanVien\Win_ThanhToanDonHang.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Windown\QuanLy\Win_ThemLichLam.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Windown\QuanLy\Win_ThemNhanVien.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Windown\Test.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Windown\NhanVien\Win_ChiTietDiemPhucVu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Windown\QuanLy\Win_QuanLy.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Windown\QuanLy\Win_QuanLyTaiKhoanNhanVien.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Windown\NhanVien\win_NhanVien.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Windown\Win_ChiTietTaiKhoan.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Page\NhanVien\Page_CongThuc.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Page\NhanVien\Page_NguyenLieu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Page\QuanLy\Page_LichLamViec.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Page\QuanLy\Page_QuanLyBanGhe.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Page\QuanLy\Page_QuanLyKhongGian.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Page\QuanLy\Page_QuanLyNhanVien.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Page\NhanVien\Page_ThucDon.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Page\QuanLy\Page_QuanLyThucDon.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Page\QuanLy\Page_TongQuan.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Windown\QuanLy\Win_SuaThongTinNguyenLieu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Windown\QuanLy\Win_SuaThongTinNoiThat.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Windown\NhanVien\Win_TaoDonHang.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Windown\NhanVien\Win_ThanhToanDonHang.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Windown\QuanLy\Win_ThemLichLam.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Windown\QuanLy\Win_ThemNhanVien.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Windown\Test.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Windown\NhanVien\Win_ChiTietDiemPhucVu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Windown\QuanLy\Win_QuanLy.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Windown\Win_ChiTietTaiKhoan.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Windown\Win_DangNhap.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Page\NhanVien\Page_QuanLyOrder.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Windown\QuanLy\Win_QuanLyTaiKhoanNhanVien.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Windown\NhanVien\Win_NhanVien.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
